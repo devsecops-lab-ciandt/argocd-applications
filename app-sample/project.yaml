@@ -1,0 +1,50 @@
+apiVersion: argoproj.io/v1alpha1
+kind: AppProject
+metadata:
+  name: apps
+  namespace: argocd
+  # Finalizer that ensures that project is not deleted until it is not referenced by any application
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  # Project description
+  description: Example Project Apps
+
+  # Allow manifests to deploy from any Git repos
+  sourceRepos:
+  - '*'
+
+  # Only permit applications to deploy to the guestbook namespace in the same cluster
+  # Destination clusters can be identified by 'server', 'name', or both.
+  destinations:
+  - namespace: default
+    server: https://kubernetes.default.svc
+    name: in-cluster
+
+  # Deny all cluster-scoped resources from being created, except for Namespace
+  clusterResourceWhitelist:
+  - group: '*'
+    kind: '*'
+
+  # Deny all namespaced-scoped resources from being created, except for Deployment and StatefulSet
+  namespaceResourceWhitelist:
+  - group: '*'
+    kind: '*'
+
+  roles:
+    - name: admin
+      description: "Admin role with full access"
+      policies:
+        - p, proj:apps:admin, applications, get, app-sample/*, allow
+        - p, proj:apps:admin, applications, sync, app-sample/*, allow
+        - p, proj:apps:admin, applications, delete, app-sample/*, allow
+      groups:
+        - my-argo-admins
+
+  # Sync windows restrict when Applications may be synced. https://argo-cd.readthedocs.io/en/stable/user-guide/sync_windows/
+  syncWindows:
+  - kind: '*'
+    schedule: ''
+    duration: ''
+    applications:
+      - '*'

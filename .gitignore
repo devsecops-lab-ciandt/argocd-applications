@@ -1,0 +1,40 @@
+# Diretório e arquivos do sistema
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Diretórios de IDEs e editores
+.idea/
+.vscode/
+*.swp
+
+# Arquivos temporários
+*.tmp
+*.bak
+
+# Configurações locais/temporárias
+.env
+config.yaml
+secrets.yaml
+
+# Arquivos de configuração de CI/CD
+# Se você estiver usando uma ferramenta de CI/CD que gera arquivos temporários, adicione-os aqui
+ci/
+build/
+
+# Certificados e chaves
+*.pem
+*.key
+*.crt
+*.cert
+
+# Imagens de container e outros arquivos binários
+*.tar
+*.gz
+*.zip
+
+# Arquivos de dependências
+node_modules/
+vendor/
