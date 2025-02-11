@@ -19,8 +19,8 @@ spec:
 
   # Source of the application manifests
   source:
-    repoURL: https://github.com/argoproj/argocd-example-apps.git  # Can point to either a Helm chart repo or a git repo.
-    targetRevision: HEAD  # For Helm, this refers to the chart version.
+    repoURL: acrdemoarc.azurecr.io/helm  # Can point to either a Helm chart repo or a git repo.
+    targetRevision: 0.1.0  # For Helm, this refers to the chart version.
 
     # helm specific config
     chart: chart-name  # Set this when pulling directly from a Helm repo. DO NOT set for git-hosted Helm charts.
