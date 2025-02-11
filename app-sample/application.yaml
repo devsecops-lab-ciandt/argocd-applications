@@ -23,7 +23,7 @@ spec:
     targetRevision: 0.1.0  # For Helm, this refers to the chart version.
 
     # helm specific config
-    chart: chart-name  # Set this when pulling directly from a Helm repo. DO NOT set for git-hosted Helm charts.
+    chart: app-sample # Set this when pulling directly from a Helm repo. DO NOT set for git-hosted Helm charts.
     helm:
       passCredentials: false # If true then adds --pass-credentials to Helm commands to pass credentials to all domains
 
