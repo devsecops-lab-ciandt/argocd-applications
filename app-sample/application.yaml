@@ -15,7 +15,7 @@ metadata:
     name: app-sample
 spec:
   # The project the application belongs to.
-  project: app-sample
+  project: apps
 
   # Source of the application manifests
   source:
