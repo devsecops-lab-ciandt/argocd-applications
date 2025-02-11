@@ -30,10 +30,11 @@ spec:
       # Release name override (defaults to application name)
       releaseName: app-sample
 
-      # Helm values files for overriding values in the helm chart
-      # The path is relative to the spec.source.path directory defined above
-      valueFiles:
-      - ../../deploy/values.yaml
+      parameters:
+      - name: replicaCount
+        value: "3"
+      - name: imagePullSecrets
+        value: "[{\"name\":\"argocd/docker-credentials\"}]"
 
       # Ignore locally missing valueFiles when installing Helm chart. Defaults to false
       ignoreMissingValueFiles: true
