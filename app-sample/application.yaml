@@ -32,7 +32,7 @@ spec:
 
       parameters:
       - name: replicaCount
-        value: "3"
+        value: "10"
       - name: image.repository
         value: "acrdemoarc.azurecr.io/devsecops-lab-ciandt/simple-node-react-two-project"
       - name: imagePullSecrets[0].name
