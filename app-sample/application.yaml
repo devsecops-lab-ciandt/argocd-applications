@@ -41,6 +41,10 @@ spec:
         value: "8080"
       - name: autoscaling.enabled
         value: "true"
+      - name: autoscaling.minReplicas
+        value: "5"
+      - name: autoscaling.maxReplicas
+        value: "10"
 
       # Ignore locally missing valueFiles when installing Helm chart. Defaults to false
       ignoreMissingValueFiles: true
