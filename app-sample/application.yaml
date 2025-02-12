@@ -37,6 +37,8 @@ spec:
         value: "acrdemoarc.azurecr.io/devsecops-lab-ciandt/simple-node-react-two-project"
       - name: imagePullSecrets[0].name
         value: "docker-credentials"
+      - name: image.pullPolicy
+        value: "Always"
       - name: service.port
         value: "8080"
 
