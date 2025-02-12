@@ -14,8 +14,8 @@ spec:
   sourceRepos:
   - '*'
 
-  orphanedResources:
-    warn: true
+  # orphanedResources:
+  #   warn: true
 
   # Only permit applications to deploy to the guestbook namespace in the same cluster
   # Destination clusters can be identified by 'server', 'name', or both.

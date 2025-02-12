@@ -31,8 +31,6 @@ spec:
       releaseName: app-sample
 
       parameters:
-      - name: replicaCount
-        value: "5"
       - name: image.repository
         value: "acrdemoarc.azurecr.io/devsecops-lab-ciandt/simple-node-react-two-project"
       - name: imagePullSecrets[0].name
@@ -41,6 +39,8 @@ spec:
         value: "Always"
       - name: service.port
         value: "8080"
+      - name: autoscaling.enabled
+        value: "true"
 
       # Ignore locally missing valueFiles when installing Helm chart. Defaults to false
       ignoreMissingValueFiles: true
