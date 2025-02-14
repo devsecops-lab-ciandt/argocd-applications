@@ -19,7 +19,7 @@ spec:
 
   # Source of the application manifests
   source:
-    repoURL: acrdemoarc.azurecr.io/charts  # Can point to either a Helm chart repo or a git repo.
+    repoURL: acrdemoarc.azurecr.io/helm  # Can point to either a Helm chart repo or a git repo.
     targetRevision: VERSION_APP  # For Helm, this refers to the chart version.
 
     # helm specific config
@@ -32,7 +32,7 @@ spec:
 
       parameters:
       - name: image.repository
-        value: "acrdemoarc.azurecr.io/images/NAME_APP"
+        value: "acrdemoarc.azurecr.io/image/NAME_APP"
       - name: imagePullSecrets[0].name
         value: "docker-credentials"
       - name: image.pullPolicy
