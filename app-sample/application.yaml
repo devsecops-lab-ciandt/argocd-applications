@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: teste-app-devsecops
+  name: NAME_APP
   # You'll usually want to add your resources to the argocd namespace.
   namespace: argocd
   # Add this finalizer ONLY if you want these to cascade delete.
@@ -12,27 +12,27 @@ metadata:
     # - resources-finalizer.argocd.argoproj.io/background
   # Add labels to your application object.
   labels:
-    name: teste-app-devsecops
+    name: NAME_APP
 spec:
   # The project the application belongs to.
   project: apps
 
   # Source of the application manifests
   source:
-    repoURL: acrdemoarc.azurecr.io/helm  # Can point to either a Helm chart repo or a git repo.
+    repoURL: acrdemoarc.azurecr.io/charts  # Can point to either a Helm chart repo or a git repo.
     targetRevision: VERSION_APP  # For Helm, this refers to the chart version.
 
     # helm specific config
-    chart: app-sample # Set this when pulling directly from a Helm repo. DO NOT set for git-hosted Helm charts.
+    chart: NAME_APP # Set this when pulling directly from a Helm repo. DO NOT set for git-hosted Helm charts.
     helm:
       passCredentials: false # If true then adds --pass-credentials to Helm commands to pass credentials to all domains
 
       # Release name override (defaults to application name)
-      releaseName: teste-app-devsecops
+      releaseName: NAME_APP
 
       parameters:
       - name: image.repository
-        value: "acrdemoarc.azurecr.io/devsecops-lab-ciandt/teste-app-devsecops"
+        value: "acrdemoarc.azurecr.io/images/NAME_APP"
       - name: imagePullSecrets[0].name
         value: "docker-credentials"
       - name: image.pullPolicy
