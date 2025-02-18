@@ -43,6 +43,9 @@ spec:
         value: "5"
       - name: autoscaling.maxReplicas
         value: "10"
+      - name: appLabels.stack
+        value: STACK_APP
+
 
       # Ignore locally missing valueFiles when installing Helm chart. Defaults to false
       ignoreMissingValueFiles: true
